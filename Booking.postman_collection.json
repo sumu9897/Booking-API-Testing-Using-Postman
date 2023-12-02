@@ -145,6 +145,30 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Delete Booking",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token={{accessToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Base_Url}}/booking/{{id}}",
+					"host": [
+						"{{Base_Url}}"
+					],
+					"path": [
+						"booking",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
