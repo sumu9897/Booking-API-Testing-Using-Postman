@@ -82,7 +82,13 @@
 			"name": "Token",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "tokon=\"89cdf34ef6b00fd\"",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"password123\"\n}\n",
@@ -114,7 +120,7 @@
 				"header": [
 					{
 						"key": "Cookie",
-						"value": "token=0c6bff3dcbe9fb2",
+						"value": "token={{accessToken}}",
 						"type": "text"
 					}
 				],
@@ -128,16 +134,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/1374",
-					"protocol": "https",
+					"raw": "{{Base_Url}}/booking/{{id}}",
 					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
+						"{{Base_Url}}"
 					],
 					"path": [
 						"booking",
-						"1374"
+						"{{id}}"
 					]
 				}
 			},
