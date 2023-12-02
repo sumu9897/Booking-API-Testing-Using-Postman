@@ -50,6 +50,39 @@
 		},
 		{
 			"name": "Get Booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()",
+							"",
+							"// pm.test(\"Test Name\", fnction(){",
+							"//     test code",
+							"// })",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"First Name Validation\", function(){",
+							"    pm.expect(jsonData.firstname).to.equal(\"Mohammad\")",
+							"})",
+							"",
+							"pm.test(\"CheckIn Validation\", function(){",
+							"    pm.expect(jsonData.bookingdates.checkin).to.equal(\"2023-10-09\")",
+							"})",
+							"",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.value).to.eql(100);",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -80,6 +113,19 @@
 		},
 		{
 			"name": "Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()",
+							"",
+							"pm.environment.set(\"accessToken\", data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -99,12 +145,9 @@
 					}
 				},
 				"url": {
-					"raw": "https://restful-booker.herokuapp.com/auth",
-					"protocol": "https",
+					"raw": "{{Base_Url}}/auth",
 					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
+						"{{Base_Url}}"
 					],
 					"path": [
 						"auth"
