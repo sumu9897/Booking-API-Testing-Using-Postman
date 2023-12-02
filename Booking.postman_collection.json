@@ -58,7 +58,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\n",
+					"raw": "{\n\t\"firstname\": \"Shakil\",\n\t\"lastname\": \"Hasan\",\n\t\"totalprice\": 111,\n\t\"depositpaid\": true,\n\t\"bookingdates\": {\n    \t\"checkin\": \"2023-02-23\",\n    \t\"checkout\": \"2023-10-23\"\n\t},\n\t\"additionalneeds\": \"Breakfast\"\n}\n\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,16 +66,13 @@
 					}
 				},
 				"url": {
-					"raw": "https://restful-booker.herokuapp.com/booking/491",
-					"protocol": "https",
+					"raw": "{{Base_Url}}/booking/{{id}}",
 					"host": [
-						"restful-booker",
-						"herokuapp",
-						"com"
+						"{{Base_Url}}"
 					],
 					"path": [
 						"booking",
-						"491"
+						"{{id}}"
 					]
 				}
 			},
